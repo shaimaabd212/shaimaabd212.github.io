@@ -1,0 +1,49 @@
+/* ===== Color palette ===== */
+:root {
+    --color-background: #e8e4e4; /* warm gray: page background */
+    --color-primary: #24365C;    /* navy: text, headings, header */
+    --color-surface: #ffffff;    /* white: cards and content boxes */
+    --color-accent: #e06118;     /* orange: buttons and highlights */
+    --color-secondary: #688662;  /* green: decorative borders */
+    --color-highlight: #8586c3;  /* lavender: soft decorative touches */
+    --color-muted: #6f6b6c;      /* gray: captions and small notes */
+}
+
+/* ===== Whole page ===== */
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--color-background);
+    color: var(--color-primary);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* ===== Main content area ===== */
+main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* ===== Section headings ===== */
+h2 {
+    border-bottom: 3px solid var(--color-secondary);
+    padding-bottom: 4px;
+}
+
+/* ===== Links ===== */
+a {
+    color: var(--color-primary);
+    text-decoration-color: var(--color-accent);
+    text-decoration-thickness: 2px;
+}
+
+a:hover {
+    text-decoration-thickness: 4px;
+}
+
+/* ===== Image captions ===== */
+figcaption {
+    color: var(--color-muted);
+    font-size: 0.9rem;
+}
