@@ -25,7 +25,7 @@ body {
 /* ===== Links ===== */
 a {
     color: var(--color-primary);
-    text-decoration-color: var(--color-accent);
+    text-decoration-color: var(--color-muted);
     text-decoration-thickness: 2px;
     text-underline-offset: 4px;
 }
@@ -107,7 +107,7 @@ h2 {
 }
 
 /* ===== Images and videos ===== */
-img, video {
+img{
     max-width: 100%;
     height: auto;
     border-radius: 8px;
