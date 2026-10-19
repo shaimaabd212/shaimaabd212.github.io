@@ -1,62 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
-<a href="index.html" class="site-name">Shaima Abdulsalam</a>
-<link rel="stylesheet" href="css/style.css">
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-    <title> Home | Shaima Abdulsalam</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shaima Abdulsalam | AI Student and Data Scientist</title>
+    <meta name="description" content="Portfolio of Shaima Abdulsalam, an AI student in Benghazi, Libya, working in data science, computer vision, and robotics.">
+    <script>
+        /* Choose light or dark before the page appears, so it never flashes */
+        document.documentElement.classList.add("js");
+        try {
+            var savedTheme = localStorage.getItem("theme");
+            var prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+            document.documentElement.dataset.theme = savedTheme || (prefersDark ? "dark" : "light");
+        } catch (error) {}
+    </script>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/main.js" defer></script>
 </head>
 <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
     <header>
-        <nav>
+        <a href="index.html" class="site-name">Shaima Abdulsalam</a>
+        <nav id="site-nav" aria-label="Main">
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About Me</a></li>
+                <li><a href="index.html" aria-current="page">Home</a></li>
+                <li><a href="about.html">About</a></li>
                 <li><a href="posts.html">Projects</a></li>
+                <li><a href="journey.html">Journey</a></li>
                 <li><a href="contact.html">Contact</a></li>
-                <li><a href="index-ar.html" lang="ar" hreflang="ar">العربية</a></li>
-                <li><a href="https://limu.edu.ly/">Limu</a></li>
+
             </ul>
         </nav>
+        <button class="icon-button theme-toggle" type="button" aria-label="Switch to dark mode">
+            <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+        </button>
+        <button class="icon-button nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
     </header>
 
-    <main>
-        <h1>Welcome to My Portfolio</h1>
-
-        <section id="introduction">
-            <h2>About Me</h2>
-            <p>Hello! I'm Shaima Abdulsalam, a Senior AI student. I am learning  front-end development building my first website. This site is where I share my projects and what I'm learning</p>
-            <p><a href="about.html">Learn more about me</a></p>
+    <main id="main">
+        <section class="hero">
+            <div>
+                <h1>Hi, I'm Shaima.</h1>
+                <p class="lead">I'm a senior Artificial Intelligence student at Libyan International University in Benghazi. I turn data into answers, teach computers to see, and build robots with my team.</p>
+                <div class="hero-actions">
+                    <a class="button" href="posts.html">See my projects</a>
+                    <a class="button button-quiet" href="contact.html">Get in touch</a>
+                </div>
+            </div>
+            <figure class="hero-photo">
+                <img src="Images/journey/me.jpeg" alt="Shaima Abdulsalam smiling in front of library bookshelves" width="1080" height="608">
+            </figure>
         </section>
 
-         <section id="skills">
-            <h2>My Skills</h2>
-            <ul>
-                <li>Python</li>
-                <li>Data Science</li>
-                <li>Data Analysis and Visualization</li>
-                <li>AI and Machine Learning</li>
-                <li>Computer Vision</li>
-                <li>Robotics</li>
+        <section aria-labelledby="skills-title">
+            <h2 id="skills-title">What's on my shelf</h2>
+            <ul class="shelf">
+                <li class="book">Python</li>
+                <li class="book">Machine Learning</li>
+                <li class="book">Deep Learning</li>
+                <li class="book">Computer Vision</li>
+                <li class="book">Data Science</li>
+                <li class="book">Data Visualization</li>
+                <li class="book">Robotics</li>
+                <li class="book">Git and GitHub</li>
+                <li class="book">HTML and CSS</li>
             </ul>
         </section>
 
-        <section id="projects">
-            <h2>My Projects</h2>
-            <p>Here are some of the projects I've worked on. <a href="posts.html">See all my projects</a></p>            <!-- Project details will go here -->
+        <section aria-labelledby="highlights-title">
+            <h2 id="highlights-title">Highlights</h2>
+            <ul class="highlights">
+                <li><strong>Best Robot Design Award</strong>At the Arab Robotics Championship Qualifiers, with the LIMU AI and Robotics Team I co-founded.</li>
+                <li><strong>Represented Libya</strong>At the Arab Robotics Championship in Tunisia.</li>
+                <li><strong>3rd place in LCPC</strong>In the Libyan Collegiate Programming Contest.</li>
+                <li><strong>Top 100 in the MENA region</strong>Selected for the Mediterranean Future honors course by Luiss University and 11 Italian universities.</li>
+            </ul>
+            <p><a href="journey.html">Follow my journey</a></p>
         </section>
 
-        <section id="contact">
-            <h2>Contact Me</h2>
-            <p>If you'd like to get in touch, please feel free to reach out via email or through my social media channels.<a href="contact.html">contact page</a>.</p>
+        <section aria-labelledby="featured-title">
+            <h2 id="featured-title">Featured projects</h2>
+            <div class="project-grid">
+                <article data-category="apps">
+                    <figure class="project-media">
+                        <img src="Images/projects/Jisr.png" alt="Screenshot of the Jisr mental health support app">
+                    </figure>
+                    <div class="project-body">
+                        <h3>Jisr: mental health support app</h3>
+                        <p>An Arabic-native app that helps people find the first words to reach out to someone they trust. Built with my team at a codeathon.</p>
+                        <div class="project-links"><a href="posts.html#jisr">Read more</a></div>
+                    </div>
+                </article>
+                <article data-category="vision">
+                    <figure class="project-media">
+                        <img src="Images/projects/t29_143.gif" alt="Animation of MRI scans with the segmented tumor area highlighted">
+                    </figure>
+                    <div class="project-body">
+                        <h3>Brain tumor segmentation</h3>
+                        <p>A U-Net model that outlines brain tumors in MRI scans, presented as a research poster.</p>
+                        <div class="project-links"><a href="posts.html#brain-tumor">Read more</a></div>
+                    </div>
+                </article>
+                <article data-category="data">
+                    <figure class="project-media">
+                        <img src="Images/projects/crude-oil-1.png" alt="Chart comparing forecasted and actual crude oil values">
+                    </figure>
+                    <div class="project-body">
+                        <h3>Crude oil forecasting</h3>
+                        <p>Our Samsung Innovation Campus capstone, forecasting crude oil markets and inventory from 35 years of weekly data.</p>
+                        <div class="project-links"><a href="posts.html#crude-oil">Read more</a></div>
+                    </div>
+                </article>
+            </div>
+            <p class="hero-actions"><a class="button button-quiet" href="posts.html">See all 8 projects</a></p>
         </section>
     </main>
 
-
     <footer>
-        <p>&copy; 2026 Shaima Abdulsalam. All rights reserved.</p>
+        <div class="footer-inner">
+            <p>&copy; 2026 Shaima Abdulsalam. Built by hand with HTML and CSS.</p>
+            <ul class="footer-links">
+                <li><a href="https://github.com/shaimaabd212" target="_blank" rel="noopener">GitHub</a></li>
+                <li><a href="https://www.linkedin.com/in/shaima-abdulsalam-38a3001b1" target="_blank" rel="noopener">LinkedIn</a></li>
+                <li><a href="https://www.kaggle.com/shaimaabdulsalam" target="_blank" rel="noopener">Kaggle</a></li>
+            </ul>
+        </div>
     </footer>
 </body>
 </html>

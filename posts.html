@@ -1,186 +1,217 @@
 <!DOCTYPE html>
 <html lang="en">
-<a href="index.html" class="site-name">Shaima Abdulsalam</a>
-<link rel="stylesheet" href="css/style.css">
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projects | Shaima Abdulsalam</title>
+    <meta name="description" content="AI, data science, and computer vision projects by Shaima Abdulsalam.">
+    <script>
+        /* Choose light or dark before the page appears, so it never flashes */
+        document.documentElement.classList.add("js");
+        try {
+            var savedTheme = localStorage.getItem("theme");
+            var prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+            document.documentElement.dataset.theme = savedTheme || (prefersDark ? "dark" : "light");
+        } catch (error) {}
+    </script>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/main.js" defer></script>
 </head>
 <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
     <header>
-        <nav>
+        <a href="index.html" class="site-name">Shaima Abdulsalam</a>
+        <nav id="site-nav" aria-label="Main">
             <ul>
                 <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About Me</a></li>
-                <li><a href="posts.html">Projects</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="posts.html" aria-current="page">Projects</a></li>
+                <li><a href="journey.html">Journey</a></li>
                 <li><a href="contact.html">Contact</a></li>
-                <li><a href="index-ar.html" lang="ar" hreflang="ar">العربية</a></li>
-                <li><a href="https://limu.edu.ly/">Limu</a></li>
             </ul>
         </nav>
+        <button class="icon-button theme-toggle" type="button" aria-label="Switch to dark mode">
+            <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+        </button>
+        <button class="icon-button nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
     </header>
-<main>
-    <h1>My Projects</h1>
-    <p>Here are some of the AI and data projects I've worked on, from team competitions to individual deep learning experiments.</p>
 
-    <h2>Jump to a Project</h2>
-    <ul>
-        <li><a href="#jisr">Jisr: Mental Health Support App</a></li>
-        <li><a href="#crude-oil">Crude Oil Market and Inventory Forecasting</a></li>
-        <li><a href="#heart-disease">Heart Disease Prediction</a></li>
-        <li><a href="#emotion-recognition">Real-Time Emotion Recognition</a></li>
-        <li><a href="#medicare">Medicare: Doctor Appointment Reservation Website</a></li>
-        <li><a href="#brain-tumor">Brain Tumor Segmentation</a></li>
-        <li><a href="#flight-monitoring">Flight Route Monitoring</a></li>
-        <li><a href="#handwriting">Handwritten Digit Recognition</a></li>
-    </ul>
+    <main id="main">
+        <section>
+            <h1>My projects</h1>
+            <p class="lead">AI and data projects from team competitions, courses, and my own experiments. Click any image to see it full size.</p>
 
-    <article id="jisr">
-        <h2>Jisr: Mental Health Support App</h2>
-        <figure>
-            <img src="Images/projects/Jisr.png" alt="Screenshot of the Jisr mental health support app" width="500">
-            <figcaption>The Jisr app interface</figcaption>
-        </figure>
-                <figure>
-            <img src="Images/projects/Jisr-1.png" alt="Screenshot of the Jisr mental health support app" width="500">
-            <figcaption>The Jisr app interface</figcaption>
-        </figure>
-        <p>Jisr is a privacy-first, Arabic-native mental health support app that I built with my team during a codeathon. It tackles the "first sentence problem" by turning everyday stress chips and raw thoughts into three tone-adapted message drafts for trusted contacts.</p>
-        <p><strong>Tools:</strong></p>
-        <ul>
-            <li>Gemini Flash</li>
-            <li>Android development</li>
-        </ul>
-        <p><a href="https://github.com/Codathon-G3/Jisr" target="_blank">View the project on GitHub</a></p>
-        <p><a href="https://jisr-m2ai.onrender.com/" target="_blank">View the Web version of the project</a></p>
-    </article>
+            <div class="filters" aria-label="Filter projects">
+                <button class="filter-button" type="button" data-filter="all" aria-pressed="true">All</button>
+                <button class="filter-button" type="button" data-filter="vision" aria-pressed="false" data-category="vision"><span class="dot" aria-hidden="true"></span>Computer vision</button>
+                <button class="filter-button" type="button" data-filter="data" aria-pressed="false" data-category="data"><span class="dot" aria-hidden="true"></span>Data science</button>
+                <button class="filter-button" type="button" data-filter="apps" aria-pressed="false" data-category="apps"><span class="dot" aria-hidden="true"></span>Apps and web</button>
+            </div>
 
-    <article id="crude-oil">
-        <h2>Crude Oil Market and Inventory Forecasting</h2>
-        <figure>
-            <img src="Images/projects/crude-oil-1.png" alt="Chart comparing forecasted and actual crude oil values" width="500">
-            <figcaption>Forecast results</figcaption>
-        </figure>
-    <figure>
-         <img src="Images/projects/crude-oil.png" alt="Crude oil forecasting website prototype, main page" width="500">
-         <img src="Images/projects/crude-oil-2.png" alt="Crude oil forecasting website prototype, forecast view" width="500">
-    <figcaption>Project prototype</figcaption>
-    </figure>
-        <p>A team capstone project for the Samsung Innovation Campus AI course, forecasting crude oil market trends and inventory levels. We built the project on the U.S. EIA Weekly Petroleum Status Report, which provides thirty-five years of weekly data through a free, stable API . The substitution changes the data, not the problem. The target is the same quantity, the same accounting identity governs it and the same drivers, modelling challenges, and deliverable apply</p>
-        <p><strong>Tools:</strong></p>
-        <ul>
-            <li>Python</li>
-            <li>Matplotlib and Seaborn</li>
-        </ul>
-        <p><a href="https://drive.google.com/drive/folders/1kpJH6fm9gRfD8JZ-5lc-kyrEy9Zq4RPK?usp=sharingproject drive" target="_blank">View project files on Google Drive</a></p>
-        <p><a href="https://techfem.haweyaadv.ly/forecast/" target="_blank">View the Project's Website</a></p>
-    </article>
+            <div class="project-grid">
+                <article id="jisr" class="project" data-category="apps">
+                    <figure class="project-media" data-lightbox>
+                        <img src="Images/projects/Jisr.png" alt="Jisr app, first screen">
+                        <img src="Images/projects/Jisr-1.png" alt="Jisr app, second screen">
+                    </figure>
+                    <div class="project-body">
+                        <h2>Jisr: mental health support app</h2>
+                        <p>A privacy-first, Arabic-native app that I built with my team during a codeathon. It tackles the &ldquo;first sentence problem&rdquo; by turning everyday stress chips and raw thoughts into three tone-adapted message drafts for trusted contacts.</p>
+                        <ul class="tags">
+                            <li>Gemini Flash</li>
+                            <li>Android development</li>
+                        </ul>
+                        <div class="project-links">
+                            <a href="https://github.com/Codathon-G3/Jisr" target="_blank" rel="noopener">Code on GitHub</a>
+                            <a href="https://jisr-m2ai.onrender.com/" target="_blank" rel="noopener">Try the web version</a>
+                        </div>
+                    </div>
+                </article>
+                <article id="crude-oil" class="project" data-category="data">
+                    <figure class="project-media" data-lightbox>
+                        <img src="Images/projects/crude-oil-1.png" alt="Chart comparing forecasted and actual crude oil values">
+                        <img src="Images/projects/crude-oil.png" alt="Crude oil forecasting website, main page">
+                        <img src="Images/projects/crude-oil-2.png" alt="Crude oil forecasting website, forecast view">
+                    </figure>
+                    <div class="project-body">
+                        <h2>Crude oil market and inventory forecasting</h2>
+                        <p>A team capstone project for the Samsung Innovation Campus AI course that forecasts crude oil market trends and U.S. inventory levels. We built it on the U.S. EIA Weekly Petroleum Status Report, which offers 35 years of weekly data through a free API.</p>
+                        <ul class="tags">
+                            <li>Python</li>
+                            <li>Matplotlib</li>
+                            <li>Seaborn</li>
+                            <li>EIA API</li>
+                        </ul>
+                        <div class="project-links">
+                            <a href="https://techfem.haweyaadv.ly/forecast/" target="_blank" rel="noopener">Visit the project website</a>
+                            <a href="https://drive.google.com/drive/folders/1kpJH6fm9gRfD8JZ-5lc-kyrEy9Zq4RPK?usp=sharing" target="_blank" rel="noopener">Project files on Google Drive</a>
+                        </div>
+                    </div>
+                </article>
+                <article id="heart-disease" class="project" data-category="data">
+                    <figure class="project-media" data-lightbox>
+                        <img src="Images/projects/HD_ML.png" alt="Research poster comparing machine learning models for heart disease prediction">
+                    </figure>
+                    <div class="project-body">
+                        <h2>Heart disease prediction</h2>
+                        <p>A research study comparing nine machine learning algorithms on a heart disease dataset, with and without PCA (principal component analysis) for feature engineering.</p>
+                        <ul class="tags">
+                            <li>Python</li>
+                            <li>Machine learning</li>
+                            <li>PCA</li>
+                        </ul>
+                        <div class="project-links">
+                            <a href="https://www.kaggle.com/code/shaimaabdulsalam/heat-disease-prediction-with-9-ml-models" target="_blank" rel="noopener">Notebook on Kaggle</a>
+                        </div>
+                    </div>
+                </article>
+                <article id="emotion-recognition" class="project" data-category="vision">
+                    <figure class="project-media" data-lightbox>
+                        <img src="Images/projects/fer.png" alt="Face with its predicted emotion label shown above it">
+                    </figure>
+                    <div class="project-body">
+                        <h2>Real-time emotion recognition</h2>
+                        <p>A convolutional neural network (CNN) that recognizes facial emotions from a live camera feed.</p>
+                        <ul class="tags">
+                            <li>Python</li>
+                            <li>CNN</li>
+                            <li>Computer vision</li>
+                        </ul>
+                        <div class="project-links">
+                            <a href="https://drive.google.com/file/d/13n3T7vbHOaEb1UgJAzUpd0pqX0Tpw7m-/view?usp=sharing" target="_blank" rel="noopener">Project files on Google Drive</a>
+                        </div>
+                    </div>
+                </article>
+                <article id="medicare" class="project" data-category="apps">
+                    <figure class="project-media" data-lightbox>
+                        <img src="Images/projects/Medicare-prototype.png" alt="Prototype of the Medicare appointment reservation website">
+                    </figure>
+                    <div class="project-body">
+                        <h2>Medicare: doctor appointment reservation website</h2>
+                        <p>As project manager, I led a team to design and develop a web-based clinical appointment reservation system using Agile methodology. It was ranked Best Project among all submissions.</p>
+                        <ul class="tags">
+                            <li>Agile methodology</li>
+                            <li>Project management</li>
+                        </ul>
+                    </div>
+                </article>
+                <article id="brain-tumor" class="project" data-category="vision">
+                    <figure class="project-media" data-lightbox>
+                        <img src="Images/projects/t29_143.gif" alt="MRI scan animation of the first case, with the segmented tumor highlighted">
+                        <img src="Images/projects/DU_5851.gif" alt="MRI scan animation of the second case, with the segmented tumor highlighted">
+                        <img src="Images/projects/Brain-Tumor-Segmentation.png" alt="Research poster for the brain tumor segmentation project">
+                    </figure>
+                    <div class="project-body">
+                        <h2>Brain tumor segmentation</h2>
+                        <p>A U-Net convolutional neural network that segments brain tumors in MRI images, evaluated with Dice score and IoU (Intersection over Union). I presented the work as a research poster.</p>
+                        <ul class="tags">
+                            <li>Python</li>
+                            <li>U-Net</li>
+                            <li>Computer vision</li>
+                        </ul>
+                        <div class="project-links">
+                            <a href="https://colab.research.google.com/drive/1qwd-1DO27iv23K9l51UoVoOBA6w-iLk0?usp=sharing" target="_blank" rel="noopener">Notebook on Google Colab</a>
+                        </div>
+                    </div>
+                </article>
+                <article id="flight-monitoring" class="project" data-category="data">
+                    <figure class="project-media" data-lightbox>
+                        <img src="Images/projects/flight-1.png" alt="Flight route visualization">
+                        <img src="Images/projects/flight-2.png" alt="Flight trajectory prediction">
+                        <img src="Images/projects/flight-3.png" alt="Barometric altitude prediction">
+                    </figure>
+                    <div class="project-body">
+                        <h2>Flight route monitoring</h2>
+                        <p>A data pipeline built on about 4 million flight records from OpenSky, using LSTM models to predict barometric altitude and flight trajectories.</p>
+                        <ul class="tags">
+                            <li>Python</li>
+                            <li>LSTM</li>
+                            <li>OpenSky data</li>
+                        </ul>
+                        <div class="project-links">
+                            <a href="https://colab.research.google.com/drive/1DT-vfl1ZOP4x-TOZj48M3Y-wDZ_nlvOt?usp=sharing" target="_blank" rel="noopener">Notebook on Google Colab</a>
+                        </div>
+                    </div>
+                </article>
+                <article id="handwriting" class="project" data-category="vision">
+                    <figure class="project-media" data-lightbox>
+                        <img src="Images/projects/Handwritten.png" alt="Poster for the handwritten digit recognition project">
+                    </figure>
+                    <div class="project-body">
+                        <h2>Handwritten digit recognition</h2>
+                        <p>A convolutional neural network (CNN) that classifies handwritten digits from the MNIST dataset.</p>
+                        <ul class="tags">
+                            <li>Python</li>
+                            <li>CNN</li>
+                            <li>MNIST</li>
+                        </ul>
+                    </div>
+                </article>
+            </div>
 
-    <article id="heart-disease">
-        <h2>Heart Disease Prediction</h2>
-        <figure>
-            <img src="Images/projects/HD_ML.png" alt="Research poster comparing machine learning models for heart disease prediction" width="500">
-            <figcaption>Research poster</figcaption>
-        </figure>
-        <p>A research study comparing nine machine learning algorithms on a heart disease dataset, with and without PCA (principal component analysis) for feature engineering.</p>
-        <p><strong>Tools:</strong></p>
-        <ul>
-            <li>Python</li>
-            <li>Machine learning</li>
-            <li>PCA</li>
-        </ul>
-        <p><a href="https://www.kaggle.com/code/shaimaabdulsalam/heat-disease-prediction-with-9-ml-models" target="_blank">View project files on Kaggle</a></p>
-    </article>
+            <p style="margin-top: 2rem;">More of my code is on <a href="https://github.com/shaimaabd212" target="_blank" rel="noopener">GitHub</a>.</p>
+        </section>
+    </main>
 
-    <article id="emotion-recognition">
-        <h2>Real-Time Emotion Recognition</h2>
-        <figure>
-            <img src="Images/projects/fer.png" alt="Face with its predicted emotion label shown above it" width="500">
-            <figcaption>Emotion predicted from a live camera feed</figcaption>
-        </figure>
-        <p>A convolutional neural network (CNN) that recognizes facial emotions in real time.</p>
-        <p><strong>Tools:</strong></p>
-        <ul>
-            <li>Python</li>
-            <li>CNN</li>
-            <li>Computer Vision</li>
-        </ul>
-        <p><a href="https://drive.google.com/file/d/13n3T7vbHOaEb1UgJAzUpd0pqX0Tpw7m-/view?usp=sharing" target="_blank">View project files on Google Drive</a></p>
-    </article>
+    <dialog class="lightbox" aria-label="Enlarged image">
+        <button class="lightbox-close" type="button">Close</button>
+        <img alt="">
+        <p></p>
+    </dialog>
 
-    <article id="medicare">
-        <h2>Medicare: Doctor Appointment Reservation Website</h2>
-        <figure>
-            <img src="Images/projects/Medicare-prototype.png" alt="Prototype of the Medicare appointment reservation website" width="500">
-            <figcaption>Medicare website prototype</figcaption>
-        </figure>
-        <p>As project manager, I led a team to design and develop a web-based clinical appointment reservation system using Agile methodology. The project was <strong>ranked Best Project</strong> among all submissions.</p>
-        <p><strong>Tools:</strong></p>
-        <ul>
-            <li>Agile methodology</li>
-        </ul>
-    </article>
-
-    <article id="brain-tumor">
-        <h2>Brain Tumor Segmentation</h2>
-        <figure>
-            <img src="Images/projects/t29_143.gif" alt="Animation of MRI scans with the segmented tumor area highlighted" width="500">
-            <img src="Images/projects/DU_5851.gif" alt="Animation of MRI scans with the segmented tumor area highlighted" width="500">
-            <figcaption>Segmentation results on MRI scans</figcaption>
-        </figure>
-        <figure>
-            <img src="Images/projects/Brain-Tumor-Segmentation.png" alt="Research poster for the brain tumor segmentation project" width="500">
-            <figcaption>Research poster</figcaption>
-        </figure>
-        <p>A U-Net convolutional neural network that segments brain tumors in MRI images, evaluated using Dice score and IoU (Intersection over Union). The work was presented as a research poster.</p>
-        <p><strong>Tools:</strong></p>
-        <ul>
-            <li>Python</li>
-            <li>U-Net (CNN)</li>
-            <li>Computer vision</li>
-        </ul>
-        <p><a href="https://colab.research.google.com/drive/1qwd-1DO27iv23K9l51UoVoOBA6w-iLk0?usp=sharing" target="_blank">View project files on Google Drive</a></p>
-    </article>
-
-    <article id="flight-monitoring">
-        <h2>Flight Route Monitoring</h2>
-        <figure>
-            <img src="Images/projects/flight-1.png" alt="Flight route visualization" width="250">
-            <img src="Images/projects/flight-2.png" alt="Flight trajectory prediction" width="250">
-            <img src="Images/projects/flight-3.png" alt="Barometric altitude prediction" width="250">
-        </figure>
-        <p>A data pipeline built on about 4 million flight records from OpenSky, using LSTM models to predict barometric altitude and flight trajectories.</p>
-        <p><strong>Tools:</strong></p>
-        <ul>
-            <li>Python</li>
-            <li>LSTM</li>
-            <li>OpenSky flight data</li>
-        </ul>
-        <p><a href="https://colab.research.google.com/drive/1DT-vfl1ZOP4x-TOZj48M3Y-wDZ_nlvOt?usp=sharing" target="_blank">View project files on Google Drive</a></p>
-    </article>
-
-    <article id="handwriting">
-        <h2>Handwritten Digit Recognition</h2>
-        <figure>
-            <img src="Images/projects/Handwritten.png" alt="Poster for the handwritten digit recognition project" width="500">
-            <figcaption>Project poster</figcaption>
-        </figure>
-        <p>A convolutional neural network (CNN) that classifies handwritten digits from the MNIST dataset.</p>
-        <p><strong>Tools:</strong></p>
-        <ul>
-            <li>Python</li>
-            <li>CNN</li>
-            <li>MNIST dataset</li>
-        </ul>
-    </article>
-
-    <p>See all my Projects on <a href="https://github.com/shaimaabd212" target="_blank">GitHub</a>.</p>
-
-</main>
     <footer>
-        <p>&copy; 2026 Shaima Abdulsalam. All rights reserved.</p>
+        <div class="footer-inner">
+            <p>&copy; 2026 Shaima Abdulsalam. Built by hand with HTML and CSS.</p>
+            <ul class="footer-links">
+                <li><a href="https://github.com/shaimaabd212" target="_blank" rel="noopener">GitHub</a></li>
+                <li><a href="https://www.linkedin.com/in/shaima-abdulsalam-38a3001b1" target="_blank" rel="noopener">LinkedIn</a></li>
+                <li><a href="https://www.kaggle.com/shaimaabdulsalam" target="_blank" rel="noopener">Kaggle</a></li>
+            </ul>
+        </div>
     </footer>
 </body>
 </html>

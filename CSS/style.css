@@ -1,14 +1,88 @@
-/* ===== Color palette ===== */
+/* =========================================================
+   Shaima Abdulsalam — portfolio stylesheet
+   Colors come from my photo: the pale blue of my shirt,
+   the brown of my coat, and the wood of the bookshelves,
+   plus my original navy and orange.
+   ========================================================= */
+
+/* ===== Fonts =====
+   @import loads the fonts from inside the CSS file, so every page
+   that links this stylesheet gets them, including the Arabic pages. */
+@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=Noto+Kufi+Arabic:wght@400;700&family=Open+Sans:wght@400;600;700&display=swap");
+
+/* ===== Light theme (default) ===== */
 :root {
-    --color-background: #ffffff;  /* white: page background */
-    --color-primary: #24365C;     /* navy: text and headings */
-    --color-accent: #e06118;      /* orange: small details only */
-    --color-line: #e8e4e4;        /* warm gray: lines, tags, borders */
-    --color-muted: #6f6b6c;       /* gray: menu, captions, footer */
-    --color-highlight: #8586c3;   /* lavender: card hover */
+    --bg: #f3f6f9;           /* pale sky blue, from my shirt */
+    --surface: #ffffff;      /* cards and boxes */
+    --text: #1c2537;         /* deep ink for reading */
+    --text-soft: #5d6573;    /* secondary text */
+    --line: #d8dee6;         /* thin borders */
+    --brand: #24365C;        /* my navy */
+    --brand-hover: #5b3a33;  /* cocoa brown, from my coat */
+    --on-brand: #ffffff;     /* text on top of brand color */
+    --accent: #e06118;       /* my orange */
+    --oak: #b8956a;          /* bookshelf wood */
+    --oak-dark: #8c6c48;     /* shadow under the shelf */
+    --sky: #a9bfd3;          /* shirt blue, stronger */
+
+    /* Book spine colors: my whole palette lives on the shelf */
+    --spine-navy: #24365C;
+    --spine-cocoa: #5b3a33;
+    --spine-oak: #b8956a;
+    --spine-orange: #e06118;
+    --spine-sky: #a9bfd3;
+    --spine-green: #688662;
+    --spine-lavender: #8586c3;
+
+    --font-display: "Bricolage Grotesque", "Open Sans", Arial, sans-serif;
+    --font-body: "Open Sans", Arial, sans-serif;
+    --font-arabic: "Noto Kufi Arabic", Arial, sans-serif;
+    --radius: 14px;
+    color-scheme: light;
 }
 
-/* ===== Whole page ===== */
+/* ===== Dark theme =====
+   Chosen with the moon button, or automatically when the
+   visitor's device is in dark mode. */
+:root[data-theme="dark"] {
+    --bg: #121826;
+    --surface: #1b2333;
+    --text: #e8edf3;
+    --text-soft: #a7b0bd;
+    --line: #2c3648;
+    --brand: #a9bfd3;
+    --brand-hover: #e2cba9;
+    --on-brand: #121826;
+    --oak: #a8865d;
+    --oak-dark: #6e5236;
+    --sky: #2f4a6b;
+    color-scheme: dark;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme]) {
+        --bg: #121826;
+        --surface: #1b2333;
+        --text: #e8edf3;
+        --text-soft: #a7b0bd;
+        --line: #2c3648;
+        --brand: #a9bfd3;
+        --brand-hover: #e2cba9;
+        --on-brand: #121826;
+        --oak: #a8865d;
+        --oak-dark: #6e5236;
+        --sky: #2f4a6b;
+        color-scheme: dark;
+    }
+}
+
+/* ===== Base ===== */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
 html {
     scroll-behavior: smooth;
     scroll-padding-top: 90px;
@@ -16,16 +90,66 @@ html {
 
 body {
     margin: 0;
-    font-family: "Open Sans", Arial, sans-serif;
-    background-color: var(--color-background);
-    color: var(--color-primary);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: var(--font-body);
+    background-color: var(--bg);
+    color: var(--text);
     line-height: 1.7;
 }
 
-/* ===== Links ===== */
+[lang="ar"] {
+    font-family: var(--font-arabic);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+h1,
+h2,
+h3 {
+    font-family: var(--font-display);
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    color: var(--text);
+}
+
+[lang="ar"] h1,
+[lang="ar"] h2,
+[lang="ar"] h3 {
+    font-family: var(--font-arabic);
+    letter-spacing: 0;
+}
+
+h1 {
+    font-size: clamp(2.4rem, 6vw, 4.2rem);
+    font-weight: 800;
+    margin: 0 0 0.5em;
+}
+
+h2 {
+    font-size: clamp(1.6rem, 3.2vw, 2.2rem);
+    font-weight: 800;
+    margin: 0 0 0.75em;
+}
+
+h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin: 1.75em 0 0.4em;
+}
+
+p {
+    margin: 0 0 1em;
+}
+
 a {
-    color: var(--color-primary);
-    text-decoration-color: var(--color-muted);
+    color: var(--brand);
+    text-decoration-color: var(--accent);
     text-decoration-thickness: 2px;
     text-underline-offset: 4px;
 }
@@ -34,174 +158,761 @@ a:hover {
     text-decoration-thickness: 3px;
 }
 
-/* ===== Header ===== */
-header {
-    position: sticky;
-    top: 0;
-    background-color: var(--color-background);
-    border-bottom: 1px solid var(--color-line);
-    padding: 16px 32px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 12px;
+:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 4px;
 }
 
-.site-name {
-    font-weight: 700;
-    font-size: 1.1rem;
-    text-decoration: none;
+[hidden] {
+    display: none !important;
 }
 
-nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 24px;
+.lead {
+    font-size: clamp(1.05rem, 1.6vw, 1.25rem);
+    color: var(--text-soft);
+    max-width: 36em;
 }
 
-nav a {
-    color: var(--color-muted);
-    text-decoration: none;
-    font-size: 0.95rem;
-    padding-bottom: 4px;
+.prose {
+    max-width: 46rem;
 }
 
-nav a:hover {
-    color: var(--color-primary);
-}
-
-nav a[aria-current="page"] {
-    color: var(--color-primary);
-    font-weight: 600;
-    border-bottom: 2px solid var(--color-accent);
-}
-
-/* ===== Main content ===== */
-main {
-    max-width: 960px;
-    margin: 0 auto;
-    padding: 48px 24px;
-}
-
-h1 {
-    font-size: 2.2rem;
-    line-height: 1.3;
-    margin: 0 0 24px;
-}
-
-h1::after {
-    content: "";
-    display: block;
-    width: 48px;
-    height: 3px;
-    background-color: var(--color-accent);
-    margin-top: 12px;
-}
-
-h2 {
-    margin-top: 40px;
-}
-
-/* ===== Images and videos ===== */
-img{
-    max-width: 100%;
-    height: auto;
+/* "Skip to content" link for keyboard users: hidden until focused */
+.skip-link {
+    position: absolute;
+    left: 1rem;
+    top: -4rem;
+    z-index: 30;
+    background: var(--brand);
+    color: var(--on-brand);
+    padding: 0.5rem 1rem;
     border-radius: 8px;
 }
 
-figure {
-    margin: 0 0 16px;
+.skip-link:focus {
+    top: 1rem;
 }
 
-figcaption {
-    color: var(--color-muted);
-    font-size: 0.85rem;
-    margin-top: 6px;
+/* ===== Header ===== */
+body > header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.75rem 1.25rem;
+    padding: 0.9rem clamp(1rem, 4vw, 2.5rem);
+    background-color: var(--bg);
+    border-bottom: 1px solid var(--line);
 }
 
-.gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    gap: 8px;
+.site-name {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 1.15rem;
+    color: var(--text);
+    text-decoration: none;
+    margin-inline-end: auto;
 }
 
-.gallery figcaption {
-    grid-column: 1 / -1;
-}
-
-/* ===== Project grid and cards ===== */
-.project-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 24px;
-}
-
-article {
-    border: 1px solid var(--color-line);
-    border-radius: 12px;
-    padding: 20px;
-}
-
-article:hover {
-    border-color: var(--color-highlight);
-}
-
-article h2 {
-    margin-top: 0;
-    font-size: 1.2rem;
-}
-
-/* ===== Tool tags ===== */
-article ul {
+body > header nav ul {
     list-style: none;
+    margin: 0;
     padding: 0;
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
+    gap: 0.25rem 1.25rem;
 }
 
-article li {
-    background-color: var(--color-line);
-    border-radius: 999px;
-    padding: 2px 12px;
-    font-size: 0.8rem;
+body > header nav a {
+    display: block;
+    color: var(--text-soft);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 0.2rem 0;
+    border-bottom: 2px solid transparent;
 }
 
-/* ===== Contact table ===== */
-table {
+body > header nav a:hover {
+    color: var(--text);
+}
+
+body > header nav a[aria-current="page"] {
+    color: var(--text);
+    border-bottom-color: var(--accent);
+}
+
+/* Round icon buttons: theme switch and mobile menu */
+.icon-button {
+    display: inline-grid;
+    place-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid var(--line);
+    background: var(--surface);
+    color: var(--text);
+    cursor: pointer;
+}
+
+.icon-button:hover {
+    border-color: var(--oak);
+}
+
+.icon-button svg {
+    width: 20px;
+    height: 20px;
+}
+
+.nav-toggle {
+    display: none;
+}
+
+.theme-toggle .icon-sun {
+    display: none;
+}
+
+:root[data-theme="dark"] .theme-toggle .icon-sun {
+    display: block;
+}
+
+:root[data-theme="dark"] .theme-toggle .icon-moon {
+    display: none;
+}
+
+/* On phones, the menu folds behind the ☰ button.
+   The "js" class is added by a script, so without JavaScript
+   the menu simply stays visible. */
+@media (max-width: 800px) {
+    .js .nav-toggle {
+        display: inline-grid;
+    }
+
+    .js body > header nav {
+        display: none;
+        order: 5;
+        width: 100%;
+    }
+
+    .js body > header.nav-open nav {
+        display: block;
+    }
+
+    .js body > header nav ul {
+        flex-direction: column;
+        gap: 0;
+        padding-bottom: 0.5rem;
+    }
+
+    .js body > header nav a {
+        padding: 0.6rem 0;
+    }
+}
+
+/* ===== Main layout ===== */
+main {
+    flex: 1;
     width: 100%;
-    border-collapse: collapse;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: clamp(2rem, 5vw, 4rem) clamp(1rem, 4vw, 2.5rem);
 }
 
-caption {
-    text-align: start;
-    color: var(--color-muted);
-    padding-bottom: 12px;
+main > section + section {
+    margin-top: clamp(3.5rem, 8vw, 6rem);
 }
 
-th, td {
-    padding: 14px 12px;
-    text-align: start;
-    border-bottom: 1px solid var(--color-line);
+/* ===== Buttons ===== */
+.button {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    border-radius: 999px;
+    border: 2px solid var(--brand);
+    background-color: var(--brand);
+    color: var(--on-brand);
+    font-weight: 700;
+    text-decoration: none;
+    transition: background-color 0.2s, border-color 0.2s;
 }
 
-thead th {
-    border-bottom: 2px solid var(--color-primary);
+.button:hover {
+    background-color: var(--brand-hover);
+    border-color: var(--brand-hover);
 }
 
-/* ===== Footer ===== */
-footer {
-    border-top: 1px solid var(--color-line);
-    text-align: center;
-    padding: 24px;
-    color: var(--color-muted);
-    font-size: 0.85rem;
+.button-quiet {
+    background-color: transparent;
+    border-color: var(--line);
+    color: var(--text);
 }
 
-footer p {
+.button-quiet:hover {
+    background-color: var(--surface);
+    border-color: var(--oak);
+}
+
+/* ===== Home: hero with arched photo ===== */
+.hero {
+    display: grid;
+    grid-template-columns: 1.25fr 1fr;
+    gap: clamp(2rem, 5vw, 4rem);
+    align-items: center;
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1.75rem;
+}
+
+.hero-photo {
+    position: relative;
     margin: 0;
+    justify-self: center;
+    width: min(100%, 380px);
+}
+
+/* The blue arch behind the photo, like a library window */
+.hero-photo::before {
+    content: "";
+    position: absolute;
+    inset: 20px -20px -20px 20px;
+    background-color: var(--sky);
+    border-radius: 999px 999px var(--radius) var(--radius);
+}
+
+.hero-photo img {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    object-position: 46% 30%;
+    border-radius: 999px 999px var(--radius) var(--radius);
+    border: 6px solid var(--surface);
+}
+
+@media (max-width: 800px) {
+    .hero {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-photo {
+        order: -1;
+        width: min(78%, 300px);
+        margin-bottom: 1rem;
+    }
+}
+
+/* ===== Home: the bookshelf of skills ===== */
+.shelf {
+    --scale: 1;
+    list-style: none;
+    margin: 0;
+    padding: 2rem 1rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 6px;
+    overflow-x: auto;
+    border-bottom: 16px solid var(--oak);
+    box-shadow: 0 5px 0 var(--oak-dark);
+}
+
+.book {
+    --h: 200px;
+    --c: var(--spine-navy);
+    --t: #ffffff;
+    flex: none;
+    height: calc(var(--h) * var(--scale));
+    width: clamp(30px, 6.5vw, 58px);
+    display: grid;
+    place-items: center;
+    writing-mode: vertical-rl;
+    white-space: nowrap;
+    color: var(--t);
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(0.78rem, 1.4vw, 0.98rem);
+    border-radius: 4px 4px 1px 1px;
+    /* two light bands near the top and bottom of each spine */
+    background:
+        linear-gradient(to bottom,
+            transparent 14px,
+            rgba(255, 255, 255, 0.3) 14px 17px,
+            transparent 17px calc(100% - 17px),
+            rgba(255, 255, 255, 0.3) calc(100% - 17px) calc(100% - 14px),
+            transparent calc(100% - 14px)),
+        var(--c);
+    box-shadow: inset -4px 0 0 rgba(0, 0, 0, 0.15);
+    transition: translate 0.25s ease;
+    animation: shelve 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) backwards;
+    animation-delay: calc(var(--i) * 70ms);
+}
+
+.book:hover {
+    translate: 0 -12px;
+}
+
+.book:nth-child(1) { --i: 0; --h: 215px; --c: var(--spine-navy); }
+.book:nth-child(2) { --i: 1; --h: 185px; --c: var(--spine-cocoa); }
+.book:nth-child(3) { --i: 2; --h: 235px; --c: var(--spine-oak); --t: #1c2537; }
+.book:nth-child(4) { --i: 3; --h: 200px; --c: var(--spine-sky); --t: #1c2537; }
+.book:nth-child(5) { --i: 4; --h: 225px; --c: var(--spine-green); }
+.book:nth-child(6) { --i: 5; --h: 180px; --c: var(--spine-orange); --t: #1c2537; }
+.book:nth-child(7) { --i: 6; --h: 210px; --c: var(--spine-lavender); --t: #1c2537; }
+.book:nth-child(8) { --i: 7; --h: 195px; --c: var(--spine-navy); }
+.book:nth-child(9) { --i: 8; --h: 170px; --c: var(--spine-cocoa); }
+
+/* The last book leans against the others */
+.book:last-child {
+    rotate: -9deg;
+    transform-origin: bottom left;
+    margin-inline-start: 14px;
+}
+
+/* Books drop onto the shelf once, when the page loads */
+@keyframes shelve {
+    from {
+        translate: 0 -40px;
+        opacity: 0;
+    }
+}
+
+@media (max-width: 600px) {
+    .shelf {
+        --scale: 0.78;
+        gap: 4px;
+        padding-inline: 0.5rem;
+    }
+}
+
+/* ===== Home: highlights with bookmark ribbons ===== */
+.highlights {
+    list-style: none;
+    margin: 0 0 1.5rem;
+    padding: 0;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+}
+
+.highlights li {
+    position: relative;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 2.4rem 1.4rem 1.4rem;
+}
+
+.highlights li::before {
+    content: "";
+    position: absolute;
+    top: -1px;
+    inset-inline-start: 1.4rem;
+    width: 16px;
+    height: 30px;
+    background: var(--accent);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 74%, 0 100%);
+}
+
+.highlights strong {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    line-height: 1.25;
+    margin-bottom: 0.35rem;
+}
+
+/* ===== Project cards (book covers with a colored spine) ===== */
+.project-grid {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
+}
+
+.project-grid > article {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-inline-start: 8px solid var(--spine, var(--spine-navy));
+    border-radius: 6px var(--radius) var(--radius) 6px;
+}
+
+/* The spine color tells you the project type */
+[data-category="vision"] { --spine: var(--spine-lavender); }
+[data-category="data"]   { --spine: var(--spine-green); }
+[data-category="apps"]   { --spine: var(--spine-orange); }
+
+.project-media {
+    margin: 0;
+    display: grid;
+    gap: 4px;
+    padding: 4px;
+    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+    background: var(--bg);
+}
+
+/* When a card has 3 images, the first one spans the full width */
+.project-media img:first-child:nth-last-child(3) {
+    grid-column: 1 / -1;
+}
+
+.project-media img {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.project-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 1.25rem 1.5rem 1.5rem;
+}
+
+.project-body h2,
+.project-body h3 {
+    font-size: 1.3rem;
+    margin: 0 0 0.5rem;
+}
+
+.project-body p {
+    color: var(--text-soft);
+}
+
+.project-links {
+    margin-top: auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 1.25rem;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.project-links p {
+    margin: 0;
+}
+
+/* ===== Tags (tools, languages) ===== */
+.tags {
+    list-style: none;
+    margin: 0.25rem 0 1.25rem;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.tags li {
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 0.15rem 0.75rem;
+    border-radius: 999px;
+    background: var(--bg);
+    border: 1px solid var(--line);
+    color: var(--text-soft);
+}
+
+/* ===== Projects page: filter buttons ===== */
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 0 0 2rem;
+}
+
+.filter-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font: inherit;
+    font-weight: 600;
+    font-size: 0.9rem;
+    padding: 0.45rem 1.1rem;
+    border-radius: 999px;
+    border: 1px solid var(--line);
+    background: var(--surface);
+    color: var(--text);
+    cursor: pointer;
+}
+
+.filter-button:hover {
+    border-color: var(--oak);
+}
+
+.filter-button[aria-pressed="true"] {
+    background: var(--brand);
+    border-color: var(--brand);
+    color: var(--on-brand);
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--spine);
+}
+
+/* ===== Clickable images (open the lightbox) ===== */
+[data-lightbox] img {
+    cursor: zoom-in;
+}
+
+.lightbox {
+    border: none;
+    padding: 0;
+    background: transparent;
+    max-width: min(94vw, 1100px);
+    max-height: 94vh;
+    overflow: visible;
+}
+
+.lightbox::backdrop {
+    background: rgba(10, 14, 22, 0.88);
+}
+
+.lightbox img {
+    max-height: 82vh;
+    width: auto;
+    margin: 0 auto;
+    border-radius: 8px;
+}
+
+.lightbox p {
+    margin: 0.75rem 0 0;
+    color: #ffffff;
+    text-align: center;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: -3rem;
+    inset-inline-end: 0;
+    font: inherit;
+    font-weight: 600;
+    color: #ffffff;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 999px;
+    padding: 0.3rem 1rem;
+    cursor: pointer;
+}
+
+/* ===== About: certificates ===== */
+.cert-grid {
+    display: grid;
+    gap: 1.25rem;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 220px), 1fr));
+}
+
+.cert-grid figure {
+    margin: 0;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 0.6rem;
+}
+
+.cert-grid img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    object-position: top;
+    border-radius: 8px;
+}
+
+.cert-grid figcaption {
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 0.6rem 0.25rem 0.1rem;
+}
+
+/* ===== Journey: timeline ===== */
+.timeline {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    max-width: 46rem;
+}
+
+/* the vertical wooden line */
+.timeline::before {
+    content: "";
+    position: absolute;
+    inset-block: 0.5rem 0;
+    inset-inline-start: 7px;
+    width: 3px;
+    background: var(--oak);
+    border-radius: 2px;
+}
+
+.timeline li {
+    position: relative;
+    padding-inline-start: 2.75rem;
+    padding-bottom: 2rem;
+}
+
+/* the circle on each milestone */
+.timeline li::before {
+    content: "";
+    position: absolute;
+    inset-inline-start: 0;
+    top: 0.3rem;
+    width: 17px;
+    height: 17px;
+    border-radius: 50%;
+    background: var(--bg);
+    border: 3px solid var(--accent);
+}
+
+.timeline time {
+    display: block;
+    font-family: var(--font-display);
+    font-weight: 600;
+    color: var(--text-soft);
+}
+
+.timeline h3 {
+    margin: 0.1rem 0 0.25rem;
+}
+
+.timeline p {
+    margin: 0;
+    color: var(--text-soft);
+}
+
+/* ===== Journey: photo galleries ===== */
+.photo-grid {
+    display: grid;
+    gap: 0.75rem;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 220px), 1fr));
+}
+
+.photo-grid figure {
+    margin: 0;
+}
+
+.photo-grid img {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* On wider screens, the first photo is bigger */
+@media (min-width: 700px) {
+    .photo-grid figure:first-child {
+        grid-column: span 2;
+        grid-row: span 2;
+    }
+}
+
+/* ===== Contact ===== */
+.contact-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: clamp(2rem, 5vw, 4rem);
+    align-items: start;
+}
+
+@media (max-width: 800px) {
+    .contact-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+main table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    overflow: hidden;
+}
+
+main caption {
+    text-align: start;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.1rem;
+    padding-bottom: 0.75rem;
+}
+
+main th,
+main td {
+    text-align: start;
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid var(--line);
+    overflow-wrap: anywhere;
+}
+
+main tr:last-child th,
+main tr:last-child td {
+    border-bottom: none;
+}
+
+main thead th {
+    font-size: 0.85rem;
+    color: var(--text-soft);
+    background: var(--bg);
+}
+
+main tbody th {
+    font-weight: 600;
+    color: var(--text-soft);
+    width: 38%;
+}
+
+/* ===== Footer: a wooden shelf edge at the bottom ===== */
+body > footer {
+    margin-top: 4rem;
+    border-top: 10px solid var(--oak);
+    background: var(--surface);
+    color: var(--text-soft);
+    font-size: 0.9rem;
+    padding: 2rem clamp(1rem, 4vw, 2.5rem);
+}
+
+.footer-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+body > footer p {
+    margin: 0;
+}
+
+.footer-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+}
+
+/* ===== Respect visitors who turn off animations ===== */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+    }
 }

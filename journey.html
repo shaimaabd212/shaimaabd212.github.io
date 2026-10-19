@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Journey | Shaima Abdulsalam</title>
+    <meta name="description" content="Competitions, programs, and trips that shaped Shaima Abdulsalam's path in AI and robotics.">
+    <script>
+        /* Choose light or dark before the page appears, so it never flashes */
+        document.documentElement.classList.add("js");
+        try {
+            var savedTheme = localStorage.getItem("theme");
+            var prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+            document.documentElement.dataset.theme = savedTheme || (prefersDark ? "dark" : "light");
+        } catch (error) {}
+    </script>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/main.js" defer></script>
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header>
+        <a href="index.html" class="site-name">Shaima Abdulsalam</a>
+        <nav id="site-nav" aria-label="Main">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="posts.html">Projects</a></li>
+                <li><a href="journey.html" aria-current="page">Journey</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        <button class="icon-button theme-toggle" type="button" aria-label="Switch to dark mode">
+            <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+        </button>
+        <button class="icon-button nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+    </header>
+
+    <main id="main">
+        <section class="prose">
+            <h1>My journey</h1>
+            <p class="lead">The competitions, programs, and trips that shaped how I learn. Click any photo to see it full size.</p>
+        </section>
+
+        <section aria-labelledby="milestones-title">
+            <h2 id="milestones-title">Milestones</h2>
+            <ol class="timeline">
+
+                <li>
+                    <time>Feb 2025</time>
+                    <h3>Co-founded the LIMU AI and Robotics Team</h3>
+                    <p>Started the team with fellow students, and I now lead its developers.</p>
+                </li>
+                <li>
+                    <time>Feb 2025</time>
+                    <h3>Best Robot Design Award</h3>
+                    <p>Won at the Arab Robotics Championship Qualifiers.</p>
+                </li>
+
+                <li>
+                    <time>March 2024</time>
+                    <h3>3rd place in LCPC LIMU</h3>
+                    <p>Placed third in the Libyan Collegiate Programming Contest.</p>
+                </li>
+                <li>
+                    <time datetime="2024">2024</time>
+                    <h3>AI and Information Warfare Program in Jordan</h3>
+                    <p>Trained in AI applications and cybersecurity in Aqaba, alongside participants from other countries.</p>
+                </li>
+                <li>
+                    <time>July 2026</time>
+                    <h3>Mediterranean Future honors course</h3>
+                    <p>Selected among the top 100 students in the MENA region by Luiss University and 11 Italian universities.</p>
+                </li>
+                <li>
+                    <time datetime="2027-02">February 2027</time>
+                    <h3>Graduation (expected)</h3>
+                    <p>Finishing my degree with a graduation project in deep learning.</p>
+                </li>
+            </ol>
+        </section>
+
+        <section id="jordan" aria-labelledby="jordan-title">
+            <h2 id="jordan-title">Aqaba, Jordan, 2024</h2>
+            <div class="photo-grid" data-lightbox>
+                <figure>
+                    <img src="Images/journey/jordan-1.jpg" >
+                </figure>
+                <figure>
+                    <img src="Images/journey/jordan-2.jpg">
+                </figure>
+                <figure>
+                    <img src="Images/journey/jordan-3.jpg" >
+                </figure>
+                <figure>
+                    <img src="Images/journey/jordan-4.jpg" alt="Group photo from the AI and Information Warfare Program in Aqaba, Jordan">
+                </figure>
+                <figure>
+                    <img src="Images/journey/jordan-5.jpg" alt="Certificate of completion for the AI and Information Warfare Program in Aqaba, Jordan">
+                </figure>
+            </div>
+        </section>
+
+        <section id="robotics" aria-labelledby="robotics-title">
+            <h2 id="robotics-title">Robotics competitions</h2>
+            <p class="prose">[Write 1 or 2 sentences about the competition: your robot, your role on the team, or what winning felt like.]</p>
+            <div class="photo-grid" data-lightbox>
+                <figure>
+                    <img src="Images/journey/robotics-1.jpg" >
+                </figure>
+                <figure>
+                    <img src="Images/journey/robotics-2.jpeg" >
+                </figure>
+                <figure>
+                    <img src="Images/journey/robotics-3.jpeg" >
+                </figure>
+                <figure>
+                    <img src="Images/journey/robotics-4.jpeg">
+                </figure>
+                <figure>
+                    <img src="Images/journey/robotics-5.jpg" alt="Certificate of achievement for the Arab Robotics Championship Qualifiers">
+                </figure>
+            </div>
+        </section>
+    </main>
+
+    <dialog class="lightbox" aria-label="Enlarged image">
+        <button class="lightbox-close" type="button">Close</button>
+        <img alt="">
+        <p></p>
+    </dialog>
+
+    <footer>
+        <div class="footer-inner">
+            <p>&copy; 2026 Shaima Abdulsalam. Built by hand with HTML and CSS.</p>
+            <ul class="footer-links">
+                <li><a href="https://github.com/shaimaabd212" target="_blank" rel="noopener">GitHub</a></li>
+                <li><a href="https://www.linkedin.com/in/shaima-abdulsalam-38a3001b1" target="_blank" rel="noopener">LinkedIn</a></li>
+                <li><a href="https://www.kaggle.com/shaimaabdulsalam" target="_blank" rel="noopener">Kaggle</a></li>
+            </ul>
+        </div>
+    </footer>
+</body>
+</html>

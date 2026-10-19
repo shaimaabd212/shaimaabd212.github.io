@@ -1,136 +1,159 @@
 <!DOCTYPE html>
 <html lang="en">
-<a href="index.html" class="site-name">Shaima Abdulsalam</a>
-<link rel="stylesheet" href="css/style.css">
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Me | Shaima Abdulsalam</title>
+    <meta name="description" content="Education, experience, certificates, and interests of Shaima Abdulsalam.">
+    <script>
+        /* Choose light or dark before the page appears, so it never flashes */
+        document.documentElement.classList.add("js");
+        try {
+            var savedTheme = localStorage.getItem("theme");
+            var prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+            document.documentElement.dataset.theme = savedTheme || (prefersDark ? "dark" : "light");
+        } catch (error) {}
+    </script>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/main.js" defer></script>
 </head>
 <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
     <header>
-        <nav>
+        <a href="index.html" class="site-name">Shaima Abdulsalam</a>
+        <nav id="site-nav" aria-label="Main">
             <ul>
                 <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About Me</a></li>
+                <li><a href="about.html" aria-current="page">About</a></li>
                 <li><a href="posts.html">Projects</a></li>
+                <li><a href="journey.html">Journey</a></li>
                 <li><a href="contact.html">Contact</a></li>
-                <li><a href="index-ar.html" lang="ar" hreflang="ar">العربية</a></li>
-                <li><a href="https://limu.edu.ly/">Limu</a></li>
             </ul>
         </nav>
+        <button class="icon-button theme-toggle" type="button" aria-label="Switch to dark mode">
+            <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+        </button>
+        <button class="icon-button nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
     </header>
 
-<main>
-    <h1>About Me</h1>
+    <main id="main">
+        <section class="prose">
+            <h1>About me</h1>
+            <p class="lead">I'm an Artificial Intelligence and IT student with a background in machine learning, data analysis, computer vision, and robotics design. Right now I'm focusing on data science and data analysis, and I built this website by hand while learning web development.</p>
+        </section>
 
-    <section id="background">
-        <h2>Who I Am</h2>
-        <p>I'm Shaima Abdulsalam, an Artificial Intelligence and IT student with a background in machine learning, data analysis, computer vision, and robotics design. I'm currently focusing on <strong>data science and data analysis</strong>, and I'm learning web development by building this website.</p>
-    </section>
+        <section class="prose" aria-labelledby="education-title">
+            <h2 id="education-title">Education</h2>
+            <h3>B.Sc. in Artificial Intelligence</h3>
+            <p>Libyan International University, Benghazi, Libya<br>
+            <em>February 2023 – February 2027 (expected)</em></p>
+            <p>Relevant coursework:</p>
+            <ul class="tags">
+                <li>Data Structures and Algorithms</li>
+                <li>Data Science</li>
+                <li>Data Engineering</li>
+                <li>Computer Vision</li>
+                <li>Deep Learning</li>
+                <li>Introduction to Robotics</li>
+                <li>Database Systems</li>
+            </ul>
+        </section>
 
-    <section id="education">
-        <h2>Education</h2>
-        <h3>B.Sc. in Artificial Intelligence</h3>
-        <p>Libyan International University, Benghazi, Libya</p>
-        <p><em>February 2023 – February 2027 (expected)</em></p>
-        <p>Relevant coursework:</p>
-        <ul>
-            <li>Data Structures and Algorithms</li>
-            <li>Data Science</li>
-            <li>Data Engineering</li>
-            <li>Computer Vision</li>
-            <li>Deep Learning</li>
-            <li>Introduction to Robotics</li>
-            <li>Database Systems</li>
-        </ul>
-    </section>
+        <section class="prose" aria-labelledby="experience-title">
+            <h2 id="experience-title">Experience and achievements</h2>
 
-    <section id="experience">
-        <h2>Experience and Achievements</h2>
+            <h3>Co-Founder and Head of Developers, LIMU AI and Robotics Team</h3>
+            <ul>
+                <li>3rd place in the Libyan Collegiate Programming Contest (LCPC)</li>
+                <li>Best Robot Design Award at the Arab Robotics Championship Qualifiers</li>
+                <li>Represented Libya at the Arab Robotics Championship in Tunisia</li>
+            </ul>
 
-        <h3>Co-Founder and Head of Developers, LIMU AI and Robotics Team</h3>
-        <ul>
-            <li>3rd place in the Libyan Collegiate Programming Contest (LCPC) LIMU</li>
-            <li>Best Robot Design Award at the Arab Robotics Championship Qualifiers</li>
-            <li>Represented Libya at the Arab Robotics Championship in Tunisia</li>
-        </ul>
+            <h3>Project Manager, Medicare Clinical Appointment Reservation System</h3>
+            <p>Led a team to design and develop a web-based clinical appointment system using Agile methodology. The project was <strong>ranked Best Project</strong> among all submissions.</p>
 
-        <h3>Project Manager, Medicare Clinical Appointment Reservation System</h3>
-        <p>Led a team to design and develop a web-based clinical appointment system using Agile methodology. The project was <strong>ranked Best Project</strong> among all submissions.</p>
+            <h3>Mediterranean Future: Addressing Global Challenges</h3>
+            <p>Selected among the top 100 students in the MENA region for an honors course by Luiss University and 11 other Italian universities.</p>
 
-        <h3>Mediterranean Future: Addressing Global Challenges</h3>
-        <p>Selected among the top 100 students in the MENA region for an honors course by Luiss University and 11 other Italian universities.</p>
+            <h3>AI and Information Warfare Program (Aqaba, Jordan, 2024)</h3>
+            <p>Completed training in AI applications and cybersecurity concepts in an international environment. <a href="journey.html#jordan">See photos from the trip</a></p>
 
-        <h3>AI and Information Warfare Program (Aqaba, Jordan, 2024)</h3>
-        <p>Completed training in AI applications and cybersecurity concepts in an international environment.</p>
+            <h3>Volunteering</h3>
+            <ul>
+                <li>Organizing committee member at Regulus, helping run a local robotics competition</li>
+                <li>Volunteer at university scientific days, such as at the University of Balagrai in Benghazi</li>
+                <li>Volunteer at I-TEX Expo Libya and the MENA Project Expo</li>
+                <li>Member of the LIMU STEM Design Team</li>
+            </ul>
+        </section>
 
-        <h3>Volunteering</h3>
-        <ul>
-            <li>Organizing committee member at Regulus, helping run a local robotics competition</li>
-            <li>Volunteer at university scientific days, such as at the University of Balagrai in Benghazi</li>
-            <li>Volunteer at I-TEX Expo Libya and the MENA Project Expo</li>
-            <li>Member of the LIMU STEM Design Team</li>
-            
-        </ul>
-    </section>
+        <section aria-labelledby="certificates-title">
+            <h2 id="certificates-title">Certificates</h2>
+            <p>Click a certificate to see it full size.</p>
+            <div class="cert-grid" data-lightbox>
+                <figure>
+                    <img src="Images/certificates/Python data associate.png" alt="Python Data Associate certificate awarded to Shaima Abdulsalam">
+                    <figcaption>Python Data Associate</figcaption>
+                </figure>
+                <figure>
+                    <img src="Images/certificates/SIC-certificate.png" alt="Samsung Innovation Campus Artificial Intelligence course certificate">
+                    <figcaption>Artificial Intelligence Course, Samsung Innovation Campus</figcaption>
+                </figure>
+                <figure>
+                    <img src="Images/certificates/AI fundamentals.png" alt="AI Fundamentals certificate">
+                    <figcaption>AI Fundamentals</figcaption>
+                </figure>
+                <figure>
+                    <img src="Images/certificates/IBM.jpg" alt="IBM Python for AI Development certificate">
+                    <figcaption>Python for AI Development, IBM</figcaption>
+                </figure>
+                <figure>
+                    <img src="Images/certificates/yout for climate action.jpg" alt="UNDP Youth for Climate Action certificate">
+                    <figcaption>Youth for Climate Action, UNDP</figcaption>
+                </figure>
+                <figure>
+                    <img src="Images/certificates/ai and disaster management.jpg" alt="DeepLearning.AI AI and Disaster Management certificate">
+                    <figcaption>AI and Disaster Management, DeepLearning.AI</figcaption>
+                </figure>
+            </div>
+            <p>See all my certificates on <a href="https://www.linkedin.com/in/shaima-abdulsalam-38a3001b1" target="_blank" rel="noopener">LinkedIn</a>.</p>
+        </section>
 
-   <section id="certificates">
-    <h2>Certificates</h2>
+        <section class="prose" aria-labelledby="interests-title">
+            <h2 id="interests-title">Outside the lab</h2>
+            <p>When I'm not training models, I'm usually on inline skates, drawing, working on graphic design, or practicing one of the languages I'm learning. I'm also interested in journalism.</p>
+            <ul class="tags">
+                <li>Inline skating</li>
+                <li>Sports</li>
+                <li>Drawing and art</li>
+                <li>Graphic design</li>
+                <li>Journalism</li>
+                <li>Learning Chinese</li>
+                <li>Learning Italian</li>
+                <li>Learning Korean</li>
+            </ul>
+        </section>
+    </main>
 
-    <figure>
-        <img src="Images/certificates/Python data associate.png" alt="Python Data Associate certificate awarded to Shaima Abdulsalam" width="400">
-        <figcaption>Python Data Associate</figcaption>
-    </figure>
+    <dialog class="lightbox" aria-label="Enlarged image">
+        <button class="lightbox-close" type="button">Close</button>
+        <img alt="">
+        <p></p>
+    </dialog>
 
-    <figure>
-        <img src="Images/certificates/SIC.png" alt="Samsung Innovation Campus Artificial Intelligence course certificate" width="400">
-        <figcaption>Artificial Intelligence Course, Samsung Innovation Campus</figcaption>
-    </figure>
-
-    <figure>
-        <img src="Images/certificates/AI fundamentals.png" alt="AI Fundamentals certificate" width="400">
-        <figcaption>AI Fundamentals</figcaption>
-    </figure>
-
-    <figure>
-        <img src="Images/certificates/IBM.jpg" alt="IBM Python for AI Development certificate" width="400">
-        <figcaption>Python for AI Development, IBM</figcaption>
-    </figure>
-
-      <figure>
-        <img src="Images/certificates/yout for climate action.jpg" alt="Youth for Climate Action UNDP certificate" width="400">
-        <figcaption>Yout for Climate Action, UNDP</figcaption>
-    </figure>
-
-    <figure>
-        <img src="Images/certificates/ai and disaster management.jpg" alt="AI and disaster Management certificate
-        " width="400">
-        <figcaption>AI and disaster Management, DeepLearning.AI</figcaption>
-    </figure>
-
-    <p>See all my certificates on <a href="https://www.linkedin.com/in/shaima-abdulsalam-38a3001b1" target="_blank">LinkedIn</a>.</p>
-</section>
-
-    <section id="interests">
-        <h2>Hobbies and Interests</h2>
-        <ul>
-            <li>Inline skating and sports</li>
-            <li>Drawing, art, and graphic design</li>
-            <li>Learning languages:
-                <ul>
-                    <li>Chinese</li>
-                    <li>Italian</li>
-                    <li>Korean</li>
-                </ul>
-            </li>
-            <li>Journalism</li>
-        </ul>
-    </section>
-</main>
     <footer>
-        <p>&copy; 2026 Shaima Abdulsalam. All rights reserved.</p>
+        <div class="footer-inner">
+            <p>&copy; 2026 Shaima Abdulsalam. Built by hand with HTML and CSS.</p>
+            <ul class="footer-links">
+                <li><a href="https://github.com/shaimaabd212" target="_blank" rel="noopener">GitHub</a></li>
+                <li><a href="https://www.linkedin.com/in/shaima-abdulsalam-38a3001b1" target="_blank" rel="noopener">LinkedIn</a></li>
+                <li><a href="https://www.kaggle.com/shaimaabdulsalam" target="_blank" rel="noopener">Kaggle</a></li>
+            </ul>
+        </div>
     </footer>
 </body>
 </html>
